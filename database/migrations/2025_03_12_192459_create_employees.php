@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
-			$table->string("name");
-			$table->unsignedBigInteger("id_roles");
-			$table->string("email");
-			$table->string("password");
-			$table->string("admin_lang_tag");
-			$table->string("avatar");
-			$table->string("phone");
+			$table->unsignedBigInteger("id_users");
+			$table->string("cv");
+			$table->text("description");
+			$table->string("nickname");
 			$table->timestamp("created_at")->default(\DB::raw("CURRENT_TIMESTAMP"));
 			$table->timestamp("updated_at")->default(\DB::raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
         });
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('employees');
     }
 };
