@@ -289,37 +289,6 @@
                 "type": "ckeditor"
             },
             {
-                "id": 4,
-                "required": "optional",
-                "is_visible": true,
-                "lang": 1,
-                "show_in_list": "yes",
-                "db_title": "job_type",
-                "title": "Job type",
-                "type": "enum",
-                "enum": [
-                    "full-time",
-                    "part-time",
-                    "contract",
-                    "freelance"
-                ]
-            },
-            {
-                "id": 5,
-                "required": "optional",
-                "is_visible": true,
-                "lang": 1,
-                "show_in_list": "yes",
-                "db_title": "job_base",
-                "title": "Job base",
-                "type": "enum",
-                "enum": [
-                    "office",
-                    "remote",
-                    "hybrid"
-                ]
-            },
-            {
                 "id": 6,
                 "required": "optional",
                 "is_visible": true,
@@ -351,6 +320,19 @@
                 "db_title": "city",
                 "title": "City",
                 "type": "text"
+            },
+            {
+                "id": 9,
+                "required": "optional",
+                "is_visible": true,
+                "lang": 1,
+                "show_in_list": "no",
+                "db_title": null,
+                "title": "Filters",
+                "type": "relationship",
+                "relationship_count": "many",
+                "relationship_table_name": "filter_fields",
+                "relationship_view_field": "title"
             }
         ],
         "is_dev": 0,

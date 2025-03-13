@@ -11,7 +11,7 @@ class Vacancy extends Model
 {
     use HasFactory;
 
-    protected $table = 'jobs';
+    protected $table = 'vacancies';
 
     /**
      * The attributes that are mass assignable.
@@ -20,10 +20,10 @@ class Vacancy extends Model
      */
     protected $fillable = [
         'id_employers',
+        'id_vacancy_categories',
 		'title',
+        'city',
 		'description',
-		'job_type',
-		'job_base',
 		'is_active',
     ];
 
@@ -33,6 +33,16 @@ class Vacancy extends Model
 	{
 		return $this->belongsTo(Employer::class, 'id_employers');
 	}
+
+    public function category()
+    {
+        return $this->belongsTo(VacancyCategory::class, 'id_vacancy_categories');
+    }
+
+    public function filterFields()
+    {
+        return $this->belongsToMany(FilterField::class, 'vacancies_filter_fields', 'id_vacancies', 'id_filter_fields');
+    }
 
     #endregion
 }

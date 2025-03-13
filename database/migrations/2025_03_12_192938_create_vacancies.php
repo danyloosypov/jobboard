@@ -18,8 +18,6 @@ return new class extends Migration
 			$table->unsignedBigInteger("id_employers");
 			$table->string("title");
 			$table->text("description");
-			$table->string("job_type");
-			$table->string("job_base");
 			$table->tinyInteger("is_active");
 			$table->unsignedBigInteger("id_vacancy_categories");
 			$table->string("city");
